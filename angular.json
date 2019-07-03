@@ -119,6 +119,42 @@
           }
         }
       }
-    }},
+    },
+    "ngx-cropper": {
+      "projectType": "library",
+      "root": "projects/ngx-cropper",
+      "sourceRoot": "projects/ngx-cropper/src",
+      "prefix": "zz",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-cropper/tsconfig.lib.json",
+            "project": "projects/ngx-cropper/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-cropper/src/test.ts",
+            "tsConfig": "projects/ngx-cropper/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-cropper/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-cropper/tsconfig.lib.json",
+              "projects/ngx-cropper/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "ngx-cropper-lib"
 }

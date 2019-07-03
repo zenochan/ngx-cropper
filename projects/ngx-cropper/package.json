@@ -1,0 +1,17 @@
+{
+  "name": "@zenochan/ngx-cropper",
+  "version": "0.0.1",
+  "author": {
+    "name": "Zeno Chan",
+    "email": "zenochan@qq.com"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.0.3",
+    "@angular/core": "^8.0.3",
+    "cropperjs": "^1.5.2",
+    "ngx-file-drop": "^8.0.3"
+  },
+  "devDependencies": {
+    "@types/cropperjs": "^1.1.5"
+  }
+}

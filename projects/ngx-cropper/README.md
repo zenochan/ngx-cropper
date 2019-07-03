@@ -1,8 +1,6 @@
 # zz-ngx-cropper
 > forked from [ngx-image-editor](https://github.com/hggeorgiev/ngx-image-editor)
 
-- since: `2019年07月03日`
-
 ### [Live Demo](https://zenochan.github.io/ngx-cropper/)
 
 ```bash

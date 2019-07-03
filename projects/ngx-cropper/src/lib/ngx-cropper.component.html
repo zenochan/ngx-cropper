@@ -1,0 +1,8 @@
+<label for="file" [hidden]="fileOrUrl">
+  <ngx-file-drop browseBtnLabel="上传" dropZoneLabel="拖动图片"
+                 (onFileDrop)="dropFile($event)"
+  ></ngx-file-drop>
+</label>
+<input type="file" id="file" accept="image/*" hidden (change)="onFileChange($event)" [multiple]="false">
+
+<img #previewImg [src]="previewImageURL" hidden alt="">

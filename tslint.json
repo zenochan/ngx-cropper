@@ -9,6 +9,9 @@
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
+    "one-line": [
+      "check-open-brace"
+    ],
     "directive-selector": [
       true,
       "attribute",

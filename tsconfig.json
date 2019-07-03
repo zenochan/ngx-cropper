@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-cropper": [
+        "dist/ngx-cropper"
+      ],
+      "ngx-cropper/*": [
+        "dist/ngx-cropper/*"
+      ]
+    }
   }
 }
