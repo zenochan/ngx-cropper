@@ -45,7 +45,8 @@ export class NgxCropperComponent implements OnInit, OnDestroy, AfterViewInit
 
   public ngOnDestroy()
   {
-    this.cropper.destroy();
+    this.cropper && this.cropper.destroy();
+    this.cropper = null;
   }
 
   public ngAfterViewInit(): void
@@ -58,13 +59,10 @@ export class NgxCropperComponent implements OnInit, OnDestroy, AfterViewInit
   private handleFile()
   {
     if (!this.fileOrUrl || typeof this.fileOrUrl == 'string') {
-      return;
-    }
-
-    this.fileName = this.fileOrUrl.name;
-    if (typeof this.fileOrUrl == 'string') {
+      console.warn('invalidate input file');
+    } else if (typeof this.fileOrUrl == 'string') {
       this.previewImageURL = this.fileOrUrl;
-    } else if (this.fileOrUrl) {
+    } else {
       this.fileType = this.fileOrUrl.type;
       this.convertFileToBase64(this.fileOrUrl);
     }
@@ -78,11 +76,6 @@ export class NgxCropperComponent implements OnInit, OnDestroy, AfterViewInit
     reader.readAsDataURL(file);
   }
 
-  public saveImage()
-  {
-    this.cropped.emit(new File([this.blob], this.fileName, {type: this.fileType}));
-  }
-
   private initCropper()
   {
     this.cropper && this.cropper.destroy();
@@ -94,8 +87,10 @@ export class NgxCropperComponent implements OnInit, OnDestroy, AfterViewInit
       dragMode: DragMode.Move,
       cropend: () => {
         this.croppedImage = this.cropper.getCroppedCanvas().toDataURL(this.fileType);
-        this.cropper.getCroppedCanvas().toBlob(blob => this.blob = blob);
-        this.saveImage();
+        this.cropper.getCroppedCanvas().toBlob(blob => {
+          this.blob = blob;
+          this.cropped.emit(new File([this.blob], this.fileName, {type: this.fileType}));
+        });
       }
     });
   }

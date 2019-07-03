@@ -1,10 +1,14 @@
 {
   "name": "@zenochan/ngx-cropper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "Zeno Chan",
     "email": "zenochan@qq.com"
   },
+  "repository": {
+    "url": "https://github.com/zecnohan/ngx-cropper/"
+  },
+  "homepage": "https://zenochan.github.io/ngx-cropper/",
   "peerDependencies": {
     "@angular/common": "^8.0.3",
     "@angular/core": "^8.0.3",
