@@ -1,0 +1,18 @@
+.github {
+  background: orange;
+  color: white;
+  text-align: center;
+  line-height: 2em;
+  width: 200px;
+  position: fixed;
+  right: -50px;
+  top: 30px;
+  font-size: 24px;
+  transform: rotate(45deg);
+}
+
+.preview {
+  margin-left: 18px;
+  border-radius: 8px;
+  border: 2px solid lightgray;
+}

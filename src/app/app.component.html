@@ -1,7 +1,16 @@
-<a target="_blank" href="https://github.com/zenochan/ngx-cropper">Github</a>
+<a  class="github" target="_blank" href="https://github.com/zenochan/ngx-cropper">Github</a>
 <zz-ngx-cropper
-    [aspectRatio]="1"
-    [file]="fileOrUrl"
-    (cropped)="cropped($event)">
+  #cropper
+  style="width: 600px;height: 600px;float: left"
+  [aspectRatio]="1"
+  [file]="fileOrUrl"
+  (cropped)="cropped($event)">
 
 </zz-ngx-cropper>
+
+<div *ngIf="cropper.croppedImage">
+  <img class="preview" style="width: 200px;height: 200px;display: inline-block" [src]="cropper.croppedImage">
+  <img class="preview" style="width: 160px;height: 160px;display: inline-block" [src]="cropper.croppedImage">
+  <img class="preview" style="width: 120px;height: 120px;display: inline-block" [src]="cropper.croppedImage">
+  <img class="preview" style="width: 80px;height: 80px;display: inline-block" [src]="cropper.croppedImage">
+</div>
