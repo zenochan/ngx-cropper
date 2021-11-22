@@ -12,10 +12,9 @@ export class NgxCropperComponent implements OnInit, OnDestroy, AfterViewInit
 {
   private cropper: Cropper;
   public croppedImage: string;
-  public blob: Blob;
   public previewImageURL: any;
 
-  private fileName: string = '';
+  private fileName: string = 'photo.jpg';
   private fileType: string = 'image/jpeg';
 
   @ViewChild('previewImg', {static: false})
@@ -30,6 +29,9 @@ export class NgxCropperComponent implements OnInit, OnDestroy, AfterViewInit
   set file(file: string | File)
   {
     this.fileOrUrl = file;
+    if (file && typeof file != 'string') {
+      this.fileName = file.name;
+    }
     this.handleFile();
   }
 
@@ -88,8 +90,7 @@ export class NgxCropperComponent implements OnInit, OnDestroy, AfterViewInit
       cropend: () => {
         this.croppedImage = this.cropper.getCroppedCanvas().toDataURL(this.fileType);
         this.cropper.getCroppedCanvas().toBlob(blob => {
-          this.blob = blob;
-          this.cropped.emit(new File([this.blob], this.fileName, {type: this.fileType}));
+          this.cropped.emit(new File([blob], this.fileName, {type: this.fileType}));
         });
       }
     });
